@@ -1,0 +1,7 @@
+sqlite> .header on
+sqlite> .mode column
+sqlite> pragma table_info('albums');
+.schema table_name
+sqlite> .schema albums
+
+https://code-projects.org/school-result-management-site-using-php-source-code/   <-- frontend idea 

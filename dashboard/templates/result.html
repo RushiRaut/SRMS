@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+
+
+{% block main_wrapper %}
+    <div class="container-fluid" style="background-color:white">
+        <div class="row text-center d-block">
+            <h2 class="text-primary bold pb-25"><a href="{% url 'home' %}">Result Management System</a></h2>
+        </div>
+		
+        <div style="text-align:center; border: 1px solid #008CBA;color: black; width: 50%;" class="container" id="marksheet">
+            <p>
+                <b>Student Name     : </b>  {{ object.select_student.student_name | safe }}
+            </p>
+            <p>
+                <b>Student Class    : </b>  {{ object.select_class.class_name }}   ( <b>{{ object.select_class.section | safe }}</b> )
+            </p>
+            <p>
+                <b>Student Roll : </b> {{ object.select_student.student_roll | safe }}
+            </p>
+            <h2 class="text-center text-primary">Mark Sheet</h2>
+            
+            <table class="table table-hover">
+                <thead >
+                    <tr>
+                        <th style="text-align:center;" scope="col">#</th>
+                        <th style="text-align:center;" scope="col">Subject Name</th>
+                        <th style="text-align:center;" scope="col">Mark</th>
+                    </tr>
+                </thead>
+		<thead >
+                    <tr>
+                        <th style="text-align:center;" scope="col">1</th>
+                        <th style="text-align:center;" scope="col">DBMS</th>
+                        <th style="text-align:center;" scope="col">16</th>
+                    </tr>
+                </thead>
+		<thead >
+                    <tr>
+                        <th style="text-align:center;" scope="col">2</th>
+                        <th style="text-align:center;" scope="col">Subject Name</th>
+                        <th style="text-align:center;" scope="col">17</th>
+                    </tr>
+                </thead>
+                <tbody id="table-row">
+                    
+                    {% for mark in marks %}
+                        <tr>
+                           <!-- <td>{{ forloop.counter }}</td> -->
+                            
+                            {% for m in mark %}
+                                <td>{{ m }}</td>
+                            {% endfor %}
+                                
+                        </tr>
+                    {% endfor %}
+                        
+                </tbody>
+            </table>
+        </div>
+        	<h4 style="text-align:center; border: none;color: black; padding: 15px 32px;"><button OnClick="window.print()">Save as PDF</button
+></h4>
+        <div >
+            <h4 style="text-align:center; border-style: none ;color: black; padding: 5px 15px;" class="link"><a href="{% url 'home' %}"><i>Back To Home</i></a></h4>
+        </div>
+    </div>   
+    
+{% endblock main_wrapper %}
+  
